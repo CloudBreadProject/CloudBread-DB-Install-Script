@@ -7,10 +7,10 @@ from ItemLists with(nolock) where ItemListID like @ItemListID and DeleteYN like 
 GO
 
 /*
-select * from ItemLists
 -----------------------------------------------------------------------
-EXEC uspSelItem1 '5395E0E0-9C9F-4A5E-995E-668C7E5B1415'
+EXEC uspSelItem1 'itemid2'
 EXEC uspSelItem1 'noexists'
 -----------------------------------------------------------------------
+select * from ItemLists
 */
 

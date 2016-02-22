@@ -132,8 +132,9 @@ GO
 
 /*
 -----------------------------------------------------------------------
---현재 MemberID가 참여하지 않은 이벤트 리스트
 EXEC uspSelGameEvents 'bbb'
 EXEC uspSelGameEvents 'aaa'
 -----------------------------------------------------------------------
+select * from GameEvents
+select * from GameEventMember
 */

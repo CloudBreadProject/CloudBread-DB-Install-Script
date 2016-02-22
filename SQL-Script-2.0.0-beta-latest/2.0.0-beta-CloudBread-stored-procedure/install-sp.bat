@@ -19,7 +19,7 @@ SQLCMD -S %1 -U %2 -P %3 -d %4 -i uspComUdtMember.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i uspComUdtMemberGameInfoes.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i uspComUdtMemberGameInfoStages.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i uspComUdtMemberItem.sql
-SQLCMD -S %1 -U %2 -P %3 -d %4 -i uspComUdtMemberItemPruchase.sql
+SQLCMD -S %1 -U %2 -P %3 -d %4 -i uspComUdtMemberItemPurchase.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i uspInsAnonymousRegMember.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i uspInsRegMember.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i uspSelAdminLogin.sql

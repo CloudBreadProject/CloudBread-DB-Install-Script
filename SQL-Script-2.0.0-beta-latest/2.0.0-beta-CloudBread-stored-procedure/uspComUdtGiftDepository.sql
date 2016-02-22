@@ -41,9 +41,10 @@ select @@ROWCOUNT as Reslut
 GO
 /*
 -----------------------------------------------------------------------
-EXEC uspComUdtGiftDepository 'CAB961F7-E05A-4034-9117-19BDB2D93010', 'A2C03A61-41C8-496C-823B-F7B2255DE55D', '1', 'FromMemberID', 'ToMemberID', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
+EXEC uspComUdtGiftDepository 'GiftID1', 'itemid3', '9', 'bbb', 'ccc', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
 EXEC uspComUdtGiftDepository 'CAB961F7-E05A-4034-9117-19BDB2D93010', null, '99', 'FromMemberID', 'ToMemberID', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
 select * from GiftDepositories
+select * from itemlists
 */
 
 

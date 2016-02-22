@@ -21,7 +21,7 @@ GO
 
 /*
 -----------------------------------------------------------------------
-EXEC uspUdtConfirmedEmailAddress 'aaa', 'MemberPWD'
+EXEC uspUdtConfirmedEmailAddress 'ccc', 'MemberPWD'
 EXEC uspUdtConfirmedEmailAddress 'adfsadsf', 'MemberPWD'
 -----------------------------------------------------------------------
 select * from Members

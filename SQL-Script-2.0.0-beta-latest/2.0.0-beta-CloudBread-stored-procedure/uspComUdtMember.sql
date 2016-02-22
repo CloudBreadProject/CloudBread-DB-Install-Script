@@ -88,10 +88,10 @@ GO
 
 /*
 -----------------------------------------------------------------------
-EXEC uspComUdtMember 'aaa', 'MemberPWD', 'qqq@aa.com', 'Y', 'PhoneNumber1', 'PhoneNumber2', 'PINumber', 'Name1', 'Name2', 'Name3', 'DOB', 'RecommenderID', 'MemberGroup', 'LastDeviceID', 'LastIPaddress', 'LastLoginDT', 'LastLogoutDT', 'LastMACAddress', 'AccountBlockYN', 'AccountBlockEndDT', 'AnonymousYN', '3rdAuthProvider', '3rdAuthIDaaa', '3rdAuthParam', 'PushNotificationID', 'PushNotificationProvider', 'PushNotificationGroup', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'Korea Standard Time'
-EXEC uspComUdtMember 'ddd', null, 'xxx@aa.com', 'Y', 'PhoneNumber1', 'PhoneNumber2', 'PINumber', 'Name1', 'Name2', 'Name3', 'DOB', 'RecommenderID', 'MemberGroup', 'LastDeviceID', 'LastIPaddress', 'LastLoginDT', 'LastLogoutDT', 'LastMACAddress', 'AccountBlockYN', 'AccountBlockEndDT', 'AnonymousYN', '3rdAuthProvider', '3rdAuthIDaaaxxx', '3rdAuthParam', 'PushNotificationID', 'PushNotificationProvider', 'PushNotificationGroup', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'Korea Standard Time'
+EXEC uspComUdtMember 'ddd', 'MemberPWD', 'UpdateAllData@ddd.com', 'Y', 'PhoneNumber1', 'PhoneNumber2', 'PINumber', 'Name1', 'Name2', 'Name3', '19900101', 'RecommenderID', 'MemberGroup', 'LastDeviceID', 'LastIPaddress', '2016-01-01 00:00:00.0000000 +00:00', '2016-01-01 00:00:00.0000000 +00:00', 'LastMACAddress', 'N', '1900-01-01', 'N', '3rdAuthProvider', '3rdAuthIDaaa', '3rdAuthParam', 'PushNotificationID', 'PushNotificationProvider', 'PushNotificationGroup', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'Korea Standard Time'
+EXEC uspComUdtMember 'eee', 'MemberPWD', 'UpdateOnlyEmail@abc.com', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
 -----------------------------------------------------------------------
 select * from Members
 select * from Members where MemberID like 'aaa'
-select * from Members where MemberID like 'ddd'
+select * from Members where MemberID like 'eee'
 */
