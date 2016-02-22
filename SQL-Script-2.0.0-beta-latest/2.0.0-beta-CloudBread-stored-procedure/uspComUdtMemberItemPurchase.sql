@@ -72,11 +72,8 @@ select @@rowcount as Reslut
 GO
 
 /*
-
 -----------------------------------------------------------------------
-EXEC uspComUdtMemberItemPurchase 'D3C6F3BF-7CA9-4F5D-9731-CDD3BD283FCB', 'ttt', 'A2C03A61-41C8-496C-823B-F7B2255DE55D', '10', '10', 'PGinfo1', 'PGinfo2', 'PGinfo3', 'PGinfo4', 'PGinfo5', 'PurchaseDeviceID', 'PurchaseDeviceIPAddress', 'PurchaseDeviceMACAddress', 'PurchaseDT', 'PurchaseCancelYN', 'PurchaseCancelDT', 'PurchaseCancelingStatus', 'PurchaseCancelReturnedAmount', 'PurchaseCancelDeviceID', 'PurchaseCancelDeviceIPAddress', 'PurchaseCancelDeviceMACAddress', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
-EXEC uspComUdtMemberItemPurchase 'D3C6F3BF-7CA9-4F5D-9731-CDD3BD283FCB', null, 'rrr', '10', '10', 'PGinfo1', 'PGinfo2', 'PGinfo3', 'PGinfo4', 'PGinfo5', 'PurchaseDeviceID', 'PurchaseDeviceIPAddress', 'PurchaseDeviceMACAddress', 'PurchaseDT', 'PurchaseCancelYN', 'PurchaseCancelDT', 'PurchaseCancelingStatus', 'PurchaseCancelReturnedAmount', 'PurchaseCancelDeviceID', 'PurchaseCancelDeviceIPAddress', 'PurchaseCancelDeviceMACAddress', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
+EXEC uspComUdtMemberItemPurchase 'MemberItemPurchasesID2', 'aaa', 'itemid2', '80', '8000', 'PGinfo1', 'PGinfo2', 'PGinfo3', 'PGinfo4', 'PGinfo5', 'PurchaseDeviceID', 'PurchaseDeviceIPAddress', 'PurchaseDeviceMACAddress', 'PurchaseDT', 'PurchaseCancelYN', 'PurchaseCancelDT', 'PurchaseCancelingStatus', 'PurchaseCancelReturnedAmount', 'PurchaseCancelDeviceID', 'PurchaseCancelDeviceIPAddress', 'PurchaseCancelDeviceMACAddress', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
 -----------------------------------------------------------------------
 SELECT * FROM MemberItemPurchases
-
 */

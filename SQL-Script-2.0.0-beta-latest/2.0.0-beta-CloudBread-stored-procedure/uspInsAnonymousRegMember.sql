@@ -20,7 +20,7 @@ CREATE PROC uspInsAnonymousRegMember
 ,@MembersLastMACAddress nvarchar(MAX) = NULL
 ,@MembersAccountBlockYN nvarchar(MAX) = NULL
 ,@MembersAccountBlockEndDT nvarchar(MAX) = NULL
-,@MembersAnonymousYN nvarchar(MAX) = NULL		--익명 처리 암호화 한다
+,@MembersAnonymousYN nvarchar(MAX) = NULL		--Set Y to configuration
 ,@Members3rdAuthProvider nvarchar(MAX) = NULL
 ,@Members3rdAuthID nvarchar(MAX) = NULL
 ,@Members3rdAuthParam nvarchar(MAX) = NULL
@@ -37,8 +37,7 @@ CREATE PROC uspInsAnonymousRegMember
 ,@MemberssCol8 nvarchar(MAX) = NULL
 ,@MemberssCol9 nvarchar(MAX) = NULL
 ,@MemberssCol10 nvarchar(MAX) = NULL
-,@MembersTimeZoneID nvarchar(MAX) = NULL		--암호화 안함
-
+,@MembersTimeZoneID nvarchar(MAX) = NULL
 ,@MemberGameInfoesLevel nvarchar(MAX) = NULL
 ,@MemberGameInfoesExps nvarchar(MAX) = NULL
 ,@MemberGameInfoesPoints nvarchar(MAX) = NULL
@@ -80,11 +79,11 @@ SELECT @rowcount as Result
 GO
 
 /*
+
 -----------------------------------------------------------------------
-EXEC uspInsAnonymousRegMember 
-'익명1', 'MemberPWD', 'Anon1@aa.com', 'Y', 'PhoneNumber1', 'PhoneNumber2', 'PINumber', 'Name1', 'Name2', 'Name3', 'DOB', 'RecommenderID', 'MemberGroup', 'LastDeviceID', 'LastIPaddress', 'LastLoginDT', 'LastLogoutDT', 'LastMACAddress', 'AccountBlockYN', 'AccountBlockEndDT', 'Y', '3rdAuthProvider', '3rdAuthIDAnon', '3rdAuthParam', 'PushNotificationID', 'PushNotificationProvider', 'PushNotificationGroup', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'Korea Standard Time', 
-'60', '10', '10', 'UserSTAT1', 'UserSTAT2', 'UserSTAT3', 'UserSTAT4', 'UserSTAT5', 'UserSTAT6', 'UserSTAT7', 'UserSTAT8', 'UserSTAT9', 'UserSTAT10', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
+EXEC uspInsAnonymousRegMember 'AnonMemberID1', 'AnonMemberPWD', 'anon@anon.com', 'Y', 'PhoneNumber1', 'PhoneNumber2', 'PINumber', 'Name1', 'Name2', 'Name3', '19900101', 'RecommenderID', 'MemberGroup', 'LastDeviceID', 'LastIPaddress', '2016-01-01 00:00:00.0000000 +00:00', '2016-01-01 00:00:00.0000000 +00:00', 'LastMACAddress', 'N', '1900-01-01', 'Y', '3rdAuthProvider', '3rdAuthIDaaa', '3rdAuthParam', 'PushNotificationID', 'PushNotificationProvider', 'PushNotificationGroup', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'Korea Standard Time', '10', '10', '10', 'UserSTAT1', 'UserSTAT2', 'UserSTAT3', 'UserSTAT4', 'UserSTAT5', 'UserSTAT6', 'UserSTAT7', 'UserSTAT8', 'UserSTAT9', 'UserSTAT10', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
+-----------------------------------------------------------------------
 select * from Members
 select * from MemberGameInfoes
------------------------------------------------------------------------
+
 */

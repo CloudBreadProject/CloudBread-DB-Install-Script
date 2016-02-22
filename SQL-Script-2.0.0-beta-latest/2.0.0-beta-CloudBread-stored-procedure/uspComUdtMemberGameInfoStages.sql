@@ -66,9 +66,9 @@ select @@rowcount as Result
 GO
 
 /*
+-----------------------------------------------------------------------
+EXEC uspComUdtMemberGameInfoStages 'MemberGameInfoStageID4', 'bbb', 'NewStageName', 'ChangeAllInfo', 'Category1', 'Category2', 'Category3', 'Mission1', 'Mission2', 'Mission3', 'Mission4', 'Mission5', '100', 'StageStat1', 'StageStat2', 'StageStat3', 'StageStat4', 'StageStat5', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
+EXEC uspComUdtMemberGameInfoStages 'MemberGameInfoStageID4', 'bbb', 'NewStageName', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+-----------------------------------------------------------------------
 select * from MemberGameInfoStages
------------------------------------------------------------------------
-EXEC uspComUdtMemberGameInfoStages '1046608A-137C-40C0-B6A3-F417D3CCFA33', 'aaa','99', '10', '10', 'UserSTAT1', 'UserSTAT2', 'UserSTAT3', 'UserSTAT4', 'UserSTAT5', 'UserSTAT6', 'UserSTAT7', 'UserSTAT8', 'UserSTAT9', 'UserSTAT10', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
-EXEC uspComUdtMemberGameInfoStages '1046608A-137C-40C0-B6A3-F417D3CCFA33', null, '150', '10', 'UserSTAT1', 'UserSTAT2', 'UserSTAT3', 'UserSTAT4', 'UserSTAT5', 'UserSTAT6', 'UserSTAT7', 'UserSTAT8', 'UserSTAT9', 'UserSTAT10', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
------------------------------------------------------------------------
 */

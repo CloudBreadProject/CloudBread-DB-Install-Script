@@ -10,8 +10,8 @@ GO
 
 /*
 -----------------------------------------------------------------------
-EXEC uspComSelItemList1 'A2C03A61-41C8-496C-823B-F7B2255DE55D'
-EXEC uspComSelItemList1 'nono'
+EXEC uspComSelItemList1 'itemid2'
+EXEC uspComSelItemList1 'itemidx'
 -----------------------------------------------------------------------
 Select * from ItemLists
 */

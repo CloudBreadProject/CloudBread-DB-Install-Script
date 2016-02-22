@@ -9,7 +9,7 @@ GO
 
 /*
 -----------------------------------------------------------------------
-EXEC uspComSelMemberGameInfoStages '1046608A-137C-40C0-B6A3-F417D3CCFA33'
+EXEC uspComSelMemberGameInfoStages 'MemberGameInfoStageID1'
 EXEC uspComSelMemberGameInfoStages 'noexists'
 -----------------------------------------------------------------------
 select * from MemberGameInfoStages

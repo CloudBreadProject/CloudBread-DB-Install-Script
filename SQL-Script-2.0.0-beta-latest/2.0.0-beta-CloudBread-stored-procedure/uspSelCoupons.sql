@@ -77,8 +77,8 @@ GO
 
 /*
 -----------------------------------------------------------------------
-EXEC uspSelCoupons 'aaa'
-EXEC uspSelCoupons 'bbb'
+EXEC uspSelCoupons 'aaa'	--get valid coupon
+EXEC uspSelCoupons 'bbb'	
 -----------------------------------------------------------------------
 SELECT * FROM Coupon
 SELECT * FROM CouponMember

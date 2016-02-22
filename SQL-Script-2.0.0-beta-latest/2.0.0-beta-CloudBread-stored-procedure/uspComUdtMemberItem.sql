@@ -41,7 +41,7 @@ GO
 
 /*
 -----------------------------------------------------------------------
-EXEC uspComUdtMemberItem 'E43E2EC7-F162-43E4-90FE-61E7CD8A385D', 'aaa', 'A2C03A61-41C8-496C-823B-F7B2255DE55D', '1', 'ItemStatus', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
+EXEC uspComUdtMemberItem 'MemberItemsID3', 'aaa', 'itemid3', '9', 'ItemStatus', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
 -----------------------------------------------------------------------
 select * from MemberItems
 */

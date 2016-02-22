@@ -10,7 +10,7 @@ GO
 
 /*
 -----------------------------------------------------------------------
-EXEC uspComSelGiftDepository 'CAB961F7-E05A-4034-9117-19BDB2D93010'
+EXEC uspComSelGiftDepository 'GiftID1'
 EXEC uspComSelGiftDepository 'noexists'
 -----------------------------------------------------------------------
 

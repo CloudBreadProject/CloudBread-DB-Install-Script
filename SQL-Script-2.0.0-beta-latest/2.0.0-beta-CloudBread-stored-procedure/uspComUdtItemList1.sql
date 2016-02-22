@@ -45,6 +45,6 @@ GO
 
 /*
 -----------------------------------------------
-exec uspComUdtItemList1 'A2D24A56-9314-40C4-AD5E-12F6A08C8DD9', 'ItemNameXXX', 'ItemDescription', '10', '10', 'ItemCategory1', 'ItemCategory2', 'ItemCategory3', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
+exec uspComUdtItemList1 'itemid1', 'ItemNameNew', 'ItemDescription', '80', '80', 'ItemCategory1', 'ItemCategory2', 'ItemCategory3', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
 select * from ItemLists
 */

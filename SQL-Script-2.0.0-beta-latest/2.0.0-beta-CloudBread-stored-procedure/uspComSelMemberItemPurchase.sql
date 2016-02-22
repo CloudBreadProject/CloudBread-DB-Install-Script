@@ -9,7 +9,7 @@ GO
 
 /*
 -----------------------------------------------------------------------
-EXEC uspComSelMemberItemPurchase 'D3C6F3BF-7CA9-4F5D-9731-CDD3BD283FCB'
+EXEC uspComSelMemberItemPurchase 'MemberItemPurchasesID1'
 EXEC uspComSelMemberItemPurchase 'asfasdf'
 -----------------------------------------------------------------------
 select * from MemberItemPurchases
