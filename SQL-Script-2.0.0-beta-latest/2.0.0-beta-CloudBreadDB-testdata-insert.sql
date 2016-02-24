@@ -8,6 +8,28 @@
 */
 
 /*
+truncate table StatsData
+truncate table CloudBreadAdminLog
+truncate table CloudBreadErrorLog
+truncate table CloudBreadLog
+truncate table MemberItems
+truncate table MemberAccountBlockLog
+truncate table Sessions
+truncate table CouponMember
+truncate table Members
+truncate table MemberGameInfoes
+truncate table GameEventMember
+truncate table GameEvents
+truncate table MemberGameInfoStages
+truncate table Notices
+truncate table AdminMembers
+truncate table GiftDepositories
+truncate table MemberItemPurchases
+truncate table ServerInfo
+truncate table Coupon
+truncate table ItemLists
+
+
 -- encryption CLR
 -- only support on SQL Server
 EXEC dbo.sp_configure 'clr enabled',1 
@@ -208,6 +230,9 @@ INSERT INTO MemberItems(MemberItemID, MemberID, ItemListID, ItemCount, ItemStatu
 values('MemberItemsID3', 'aaa', 'itemid3', '1', 'ItemStatus', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', 'N', '', '', '', '')
 INSERT INTO MemberItems(MemberItemID, MemberID, ItemListID, ItemCount, ItemStatus, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10, HideYN, DeleteYN, CreatedAt, UpdatedAt, DataFromRegion, DataFromRegionDT)
 values('MemberItemsID4', 'bbb', 'itemid1', '1', 'ItemStatus', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', 'N', '', '', '', '')
+INSERT INTO MemberItems(MemberItemID, MemberID, ItemListID, ItemCount, ItemStatus, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10, HideYN, DeleteYN, CreatedAt, UpdatedAt, DataFromRegion, DataFromRegionDT)
+values('MemberItemsID5', 'aaa', 'itemid4', '1', 'ItemStatus', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', 'N', '', '', '', '')
+
 --select * from MemberItems
 
 --MemberGameInfoes table
@@ -319,13 +344,13 @@ values('GameEventMemberID4', 'evtid2', 'bbb', 'sCol1', 'sCol2', 'sCol3', 'sCol4'
 --SELECT COLUMN_NAME + ', ' FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME LIKE 'Coupon'
 --SELECT '''' + COLUMN_NAME + ''', ' FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME LIKE 'Coupon'
 insert into Coupon(CouponID, CouponCategory1, CouponCategory2, CouponCategory3, ItemListID, ItemCount, ItemStatus, TargetGroup, TargetOS, TargetDevice, Title, Content, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10, DupeYN, OrderNumber, CouponDurationFrom, CouponDurationTo, CreateAdminID, HideYN, DeleteYN, CreatedAt, UpdatedAt, DataFromRegion, DataFromRegionDT)
-values('cpid1', 'CouponCategory1', 'CouponCategory2', 'CouponCategory3', 'itemid1', '1', 'ItemStatus', 'TargetGroup', 'TargetOS', 'TargetDevice', 'Title1', 'Content', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', 0, '2015-03-01', '2025-04-01', 'admin1', 'N', 'N', '', '', '', '')
+values('cpid1', 'CouponCategory1', 'CouponCategory2', 'CouponCategory3', 'itemid1', '1', 'ItemStatus', 'TargetGroup', 'TargetOS', 'TargetDevice', 'Title1', 'Content', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', '0', '2015-03-01', '2025-04-01', 'admin1', 'N', 'N', '', '', '', '')
 insert into Coupon(CouponID, CouponCategory1, CouponCategory2, CouponCategory3, ItemListID, ItemCount, ItemStatus, TargetGroup, TargetOS, TargetDevice, Title, Content, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10, DupeYN, OrderNumber, CouponDurationFrom, CouponDurationTo, CreateAdminID, HideYN, DeleteYN, CreatedAt, UpdatedAt, DataFromRegion, DataFromRegionDT)
-values('cpid2', 'CouponCategory1', 'CouponCategory2', 'CouponCategory3', 'itemid2', '2', 'ItemStatus', 'TargetGroup', 'TargetOS', 'TargetDevice', 'Title2', 'Content', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'Y', 0, '2015-03-01', '2025-04-01', 'admin1', 'N', 'N', '', '', '', '')
+values('cpid2', 'CouponCategory1', 'CouponCategory2', 'CouponCategory3', 'itemid2', '2', 'ItemStatus', 'TargetGroup', 'TargetOS', 'TargetDevice', 'Title2', 'Content', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'Y', '0', '2015-03-01', '2025-04-01', 'admin1', 'N', 'N', '', '', '', '')
 insert into Coupon(CouponID, CouponCategory1, CouponCategory2, CouponCategory3, ItemListID, ItemCount, ItemStatus, TargetGroup, TargetOS, TargetDevice, Title, Content, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10, DupeYN, OrderNumber, CouponDurationFrom, CouponDurationTo, CreateAdminID, HideYN, DeleteYN, CreatedAt, UpdatedAt, DataFromRegion, DataFromRegionDT)
-values('cpid3', 'CouponCategory1', 'CouponCategory2', 'CouponCategory3', 'itemid3', '3', 'ItemStatus', 'TargetGroup', 'TargetOS', 'TargetDevice', 'Title3', 'Content', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', 0, '2015-03-01', '2025-04-01', 'admin1', 'N', 'N', '', '', '', '')
+values('cpid3', 'CouponCategory1', 'CouponCategory2', 'CouponCategory3', 'itemid3', '3', 'ItemStatus', 'TargetGroup', 'TargetOS', 'TargetDevice', 'Title3', 'Content', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', '0', '2015-03-01', '2025-04-01', 'admin1', 'N', 'N', '', '', '', '')
 insert into Coupon(CouponID, CouponCategory1, CouponCategory2, CouponCategory3, ItemListID, ItemCount, ItemStatus, TargetGroup, TargetOS, TargetDevice, Title, Content, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10, DupeYN, OrderNumber, CouponDurationFrom, CouponDurationTo, CreateAdminID, HideYN, DeleteYN, CreatedAt, UpdatedAt, DataFromRegion, DataFromRegionDT)
-values('cpid4', 'CouponCategory1', 'CouponCategory2', 'CouponCategory3', 'itemid4', '4', 'ItemStatus', 'TargetGroup', 'TargetOS', 'TargetDevice', 'Title4', 'Content', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'Y', 0, '2015-03-01', '2025-04-01', 'admin1', 'N', 'N', '', '', '', '')
+values('cpid4', 'CouponCategory1', 'CouponCategory2', 'CouponCategory3', 'itemid4', '4', 'ItemStatus', 'TargetGroup', 'TargetOS', 'TargetDevice', 'Title4', 'Content', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'Y', '0', '2015-03-01', '2025-04-01', 'admin1', 'N', 'N', '', '', '', '')
 --select * from Coupon
 --select * from itemlists
 

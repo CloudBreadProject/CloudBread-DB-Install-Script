@@ -14,7 +14,7 @@
 --SELECT * FROM Coupon
 --SELECT * FROM CouponMember
 --SELECT * FROM MemberItems
-
+--select * from itemlists
 
 -----------------------------------------------------------------------
 -- uspUdtCouponMember 프로시저 생성
@@ -39,7 +39,7 @@ CREATE PROC uspUdtCouponMember
 ,	@sCol9_MemberItems nvarchar(MAX) = NULL
 ,	@sCol10_MemberItems nvarchar(MAX) = NULL
 
---@CouponMemberID_CouponMember nvarchar(MAX)-- 항상 insert 과정이라 없음
+--@CouponMemberID_CouponMember nvarchar(MAX)-- 항상 insert 과정이라 GUID로 처리
 ,	@CouponID_CouponMember nvarchar(MAX) = NULL
 ,	@MemberID_CouponMember nvarchar(MAX) = NULL
 ,	@sCol1_CouponMember nvarchar(MAX) = NULL
@@ -77,7 +77,7 @@ begin
 				--MemberItemID는 기본값으로 GUID 처리
 				insert into MemberItems(MemberItemID, MemberID, ItemListID, ItemCount, ItemStatus, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10)
 				values(
-					newid()
+					@MemberItemID_MemberItems
 					,	@MemberID_MemberItems
 					,	@ItemListID_MemberItems
 					,	@ItemCount_MemberItems
