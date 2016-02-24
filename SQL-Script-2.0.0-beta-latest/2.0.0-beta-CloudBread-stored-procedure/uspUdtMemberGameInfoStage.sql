@@ -141,6 +141,7 @@ set @rowcount = 0
 						, sCol10 = CASE WHEN @sCol10_MemberGameInfoStages is not null THEN @sCol10_MemberGameInfoStages ELSE  sCol10 END
 						, UpdatedAt = SYSUTCDATETIME()
 					where MemberGameInfoStageID like @MemberGameInfoStageID_MemberGameInfoStages
+					set @rowcount = @rowcount + (select @@ROWCOUNT)
 
 				-- MemberGameInfo¿¡ update ¼öÇà
 				update MemberGameInfoes set
