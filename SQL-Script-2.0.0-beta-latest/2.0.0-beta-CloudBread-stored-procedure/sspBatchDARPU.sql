@@ -1,36 +1,39 @@
 /**
-* @file sspBatchHAU.sql
-* @brief add StatsData HAU from webjob batch
+* @file sspBatchDARPU.sql
+* @brief add StatsData DARPU from webjob batch
 * @author Dae Woo Kim
 * @param N/A
 * @return affected rows number
 * @see webjob batch tasks
 */
 
---drop proc sspBatchHAU
-create proc sspBatchHAU 
+--drop proc sspBatchDARPU
+create proc sspBatchDARPU 
 as
 set nocount on
 declare @LastRunDT datetimeoffset(7)
 declare @CurrentDT datetimeoffset(7)
 declare @nowdt datetime
-declare @HAU bigint
+declare @DARPU bigint
 set @nowdt = (select getutcdate())
 --select @nowdt as nowdt
 set @CurrentDT = ((SELECT DATETIMEFROMPARTS (DATEPART(year, @nowdt), DATEPART(month,@nowdt), DATEPART(day, @nowdt), DATEPART(hour, @nowdt), 0, 0,0 )))
 --select @CurrentDT as CurrentDT
-set @LastRunDT = (dateadd(hour, -1, @CurrentDT))		-- hour -1
+set @LastRunDT = (dateadd(day, -1, @CurrentDT))
 --select @LastRunDT as LastRunDT
 
-set @HAU = (select count(*) from members where LastLoginDT between @LastRunDT and @CurrentDT)
-insert into StatsData(CategoryName, CountNum, Fields, Groups) values('HAU', @HAU, CONVERT(nvarchar(8), GETUTCDATE(), 112) + CONVERT(nvarchar(2), DATEPART(hour, @nowdt)), '') 
+set @DARPU = (select count(*) from members where LastLoginDT between @LastRunDT and @CurrentDT)
+insert into StatsData(CategoryName, CountNum, Fields) values('DARPU', @DARPU, CONVERT(nvarchar(8), GETUTCDATE(), 112)) 
 select @@rowcount 
 GO
 
-/*
-exec sspBatchHAU
+------------------------------------------------------------------
+-- run test
+--exec sspBatchDARPU
+------------------------------------------------------------------
 
-select * from StatsData order by createdat desc
+/*
+select * from StatsData
 select * from Members
 select count(*) from members where LastLoginDT between '2016-02-27 15:00:03.1749825 +00:00' and sysutcdatetime()
 -- test data value
@@ -39,6 +42,14 @@ update Members set LastLoginDT = sysutcdatetime() where memberid like 'bbb'
 update Members set LastLoginDT = sysutcdatetime() where memberid like 'ccc'
 update Members set LastLoginDT = sysutcdatetime() where memberid like 'ddd'
 
-select CONVERT(nvarchar(8), GETUTCDATE(), 112) 
+select sysutcdatetime()
+select dateadd(day, 1, sysutcdatetime()) 
+select CONVERT(nvarchar(20), getutcdate(), 112)
+
+declare @nowdt datetime
+set @nowdt = (select getutcdate())
+SELECT DATEPART(year, @nowdt) + '-' + DATEPART(month,@nowdt) + '-' +  DATEPART(day, @nowdt);
+SELECT convert(datetime, getutcdate(), 121) -- yyyy-mm-dd hh:mm:ss.mmm 
+
 */
 
