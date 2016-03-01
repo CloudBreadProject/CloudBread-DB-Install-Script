@@ -68,7 +68,7 @@ set @rowcount = 0
 			begin tran
 				--INSERT 일 경우 MemberGameInfoStages에 추가하고,  MemberGameInfo에 update
 				insert into MemberGameInfoStages(MemberGameInfoStageID, MemberID, StageName, StageStatus, Category1, Category2, Category3, Mission1, Mission2, Mission3, Mission4, Mission5, Points, StageStat1, StageStat2, StageStat3, StageStat4, StageStat5,  sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10)
-				values(newid(), @MemberID_MemberGameInfoStages, @StageName_MemberGameInfoStages, @StageStatus_MemberGameInfoStages, @Category1_MemberGameInfoStages, @Category2_MemberGameInfoStages, @Category3_MemberGameInfoStages, @Mission1_MemberGameInfoStages, @Mission2_MemberGameInfoStages, @Mission3_MemberGameInfoStages, @Mission4_MemberGameInfoStages, @Mission5_MemberGameInfoStages, @Points_MemberGameInfoStages, @StageStat1_MemberGameInfoStages, @StageStat2_MemberGameInfoStages, @StageStat3_MemberGameInfoStages, @StageStat4_MemberGameInfoStages, @StageStat5_MemberGameInfoStages,@sCol1_MemberGameInfoStages, @sCol2_MemberGameInfoStages, @sCol3_MemberGameInfoStages, @sCol4_MemberGameInfoStages, @sCol5_MemberGameInfoStages, @sCol6_MemberGameInfoStages, @sCol7_MemberGameInfoStages, @sCol8_MemberGameInfoStages, @sCol9_MemberGameInfoStages, @sCol10_MemberGameInfoStages)
+				values(@MemberGameInfoStageID_MemberGameInfoStages, @MemberID_MemberGameInfoStages, @StageName_MemberGameInfoStages, @StageStatus_MemberGameInfoStages, @Category1_MemberGameInfoStages, @Category2_MemberGameInfoStages, @Category3_MemberGameInfoStages, @Mission1_MemberGameInfoStages, @Mission2_MemberGameInfoStages, @Mission3_MemberGameInfoStages, @Mission4_MemberGameInfoStages, @Mission5_MemberGameInfoStages, @Points_MemberGameInfoStages, @StageStat1_MemberGameInfoStages, @StageStat2_MemberGameInfoStages, @StageStat3_MemberGameInfoStages, @StageStat4_MemberGameInfoStages, @StageStat5_MemberGameInfoStages,@sCol1_MemberGameInfoStages, @sCol2_MemberGameInfoStages, @sCol3_MemberGameInfoStages, @sCol4_MemberGameInfoStages, @sCol5_MemberGameInfoStages, @sCol6_MemberGameInfoStages, @sCol7_MemberGameInfoStages, @sCol8_MemberGameInfoStages, @sCol9_MemberGameInfoStages, @sCol10_MemberGameInfoStages)
 				set @rowcount = @rowcount + (select @@ROWCOUNT)
 
 				-- MemberGameInfo에 update 수행
@@ -141,6 +141,7 @@ set @rowcount = 0
 						, sCol10 = CASE WHEN @sCol10_MemberGameInfoStages is not null THEN @sCol10_MemberGameInfoStages ELSE  sCol10 END
 						, UpdatedAt = SYSUTCDATETIME()
 					where MemberGameInfoStageID like @MemberGameInfoStageID_MemberGameInfoStages
+					set @rowcount = @rowcount + (select @@ROWCOUNT)
 
 				-- MemberGameInfo에 update 수행
 				update MemberGameInfoes set

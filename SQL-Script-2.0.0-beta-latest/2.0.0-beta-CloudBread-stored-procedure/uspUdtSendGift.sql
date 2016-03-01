@@ -57,7 +57,7 @@ if upper(@DeleteORUpdate) = 'DELETE'
 			-- GiftDepositories ¸¦ insert
 			insert into GiftDepositories(GiftDepositoryID, ItemListID, ItemCount, FromMemberID, ToMemberID, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10 )
 			values(
-				NEWID() 
+				@GiftDepositoryID_GiftDepository
 --				,@ItemName_GiftDepository 
 				,@ItemListID_GiftDepository 
 				,@ItemCount_GiftDepository 
@@ -109,7 +109,7 @@ if upper(@DeleteORUpdate) = 'UPDATE'
 			-- GiftDepositories ¸¦ insert
 			insert into GiftDepositories(GiftDepositoryID, ItemListID, ItemCount, FromMemberID, ToMemberID,sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10 )
 			values(
-				NEWID() 
+				@GiftDepositoryID_GiftDepository
 --				,@ItemName_GiftDepository 
 				,@ItemListID_GiftDepository 
 				,@ItemCount_GiftDepository 

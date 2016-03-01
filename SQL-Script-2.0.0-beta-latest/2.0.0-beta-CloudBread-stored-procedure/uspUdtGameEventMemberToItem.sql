@@ -106,7 +106,6 @@ GO
 --values(newid(), 'aaa', 'A2C03A61-41C8-496C-823B-F7B2255DE55D', '1', 'ItemStatus', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', 'N', '', '', '', '')
 --values(newid(), '7A411FA7-18BC-4383-99B3-AD57FEF3AF7E', 'aaa', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', 'N', '', '', '', '' )
 
---현재 MemberID가 참여하지 않은 이벤트 리스트
 EXEC uspUdtGameEventMemberToItem 'INSERT',NULL,'bbb', 'A2D24A56-9314-40C4-AD5E-12F6A08C8DD9', '77', 'ItemStatus', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10',    'A2C03A61-41C8-496C-823B-F7B2255DE55D' ,'bbb', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
 EXEC uspUdtGameEventMemberToItem 'UPDATE','D6B10044-7195-447C-807E-D6F52F56C03A','bbb', 'A2D24A56-9314-40C4-AD5E-12F6A08C8DD9', '1', 'ItemStatus', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', '7A411FA7-18BC-4383-99B3-AD57FEF3AF7E', 'bbb', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
 -----------------------------------------------------------------------

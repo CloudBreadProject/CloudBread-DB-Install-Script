@@ -35,7 +35,7 @@ if upper(@InsertORUpdate) = 'INSERT'
 		begin tran
 			--MemberItems에 삽입하고 gift에서 gift deleteYN flag 바꾸기
 			insert into MemberItems(MemberItemID, MemberID, ItemListID, ItemCount, ItemStatus, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10) 
-			values(newid(), @MemberID,@ItemListID,@ItemCount,@ItemStatus,@sCol1,@sCol2,@sCol3,@sCol4,@sCol5,@sCol6,@sCol7,@sCol8,@sCol9,@sCol10)
+			values(@MemberItemID,@MemberID,@ItemListID,@ItemCount,@ItemStatus,@sCol1,@sCol2,@sCol3,@sCol4,@sCol5,@sCol6,@sCol7,@sCol8,@sCol9,@sCol10)
 			set @rowcount = @rowcount + (select @@ROWCOUNT)
 			--삭제 플래그 루틴
 			--delete from GiftDepositories where GiftDepositoryID like @GiftDepositoryID
