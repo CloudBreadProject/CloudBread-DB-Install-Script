@@ -57,9 +57,9 @@ insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DAU', 7789
 insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DAU', 8876, CONVERT(nvarchar(8), getutcdate(), 112), '')
 insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DAU', 7644, CONVERT(nvarchar(8), getutcdate(), 112), '')
 
-insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DARPU', 210, CONVERT(nvarchar(8), getutcdate(), 112), '')
-insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DARPU', 232, CONVERT(nvarchar(8), getutcdate(), 112), '')
-insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DARPU', 244, CONVERT(nvarchar(8), getutcdate(), 112), '')
+insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DARPU', 210.01, CONVERT(nvarchar(8), getutcdate(), 112), '')
+insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DARPU', 232.0044, CONVERT(nvarchar(8), getutcdate(), 112), '')
+insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DARPU', 244.0101, CONVERT(nvarchar(8), getutcdate(), 112), '')
 insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DARPU', 265, CONVERT(nvarchar(8), getutcdate(), 112), '')
 insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DARPU', 276, CONVERT(nvarchar(8), getutcdate(), 112), '')
 insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DARPU', 299, CONVERT(nvarchar(8), getutcdate(), 112), '')
