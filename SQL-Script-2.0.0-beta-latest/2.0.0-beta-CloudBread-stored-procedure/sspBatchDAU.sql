@@ -14,7 +14,7 @@ set nocount on
 declare @LastRunDT datetimeoffset(7)
 declare @CurrentDT datetimeoffset(7)
 declare @nowdt datetime
-declare @DDAU bigint
+declare @DAU bigint
 set @nowdt = (select getutcdate())
 --select @nowdt as nowdt
 set @CurrentDT = ((SELECT DATETIMEFROMPARTS (DATEPART(year, @nowdt), DATEPART(month,@nowdt), DATEPART(day, @nowdt), DATEPART(hour, @nowdt), 0, 0,0 )))
@@ -22,8 +22,8 @@ set @CurrentDT = ((SELECT DATETIMEFROMPARTS (DATEPART(year, @nowdt), DATEPART(mo
 set @LastRunDT = (dateadd(day, -1, @CurrentDT))
 --select @LastRunDT as LastRunDT
 
-set @DDAU = (select count(*) from members where LastLoginDT between @LastRunDT and @CurrentDT)
-insert into StatsData(CategoryName, CountNum, Fields) values('DDAU', @DDAU, CONVERT(nvarchar(8), GETUTCDATE(), 112)) 
+set @DAU = (select count(*) from members where LastLoginDT between @LastRunDT and @CurrentDT)
+insert into StatsData(CategoryName, CountNum, Fields, Groups) values('DAU', @DAU, CONVERT(nvarchar(8), GETUTCDATE(), 112), '') 
 select @@rowcount 
 GO
 
@@ -33,7 +33,7 @@ GO
 ------------------------------------------------------------------
 
 /*
-select * from StatsData
+select * from StatsData order by createdat desc
 select * from Members
 select count(*) from members where LastLoginDT between '2016-02-27 15:00:03.1749825 +00:00' and sysutcdatetime()
 -- test data value
