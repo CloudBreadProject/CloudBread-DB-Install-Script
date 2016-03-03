@@ -2,13 +2,16 @@
 CloudBread database installation scripts including table, database oject and stored prodecure
 
 ##Brief install guide.
-Install SQLCMD cli-tool to execute batch file on this project.
-Execute batch file with below parameters in latest released directory.
+Install SQL Express - management tool at this link - https://www.microsoft.com/en-US/download/details.aspx?id=42299
+x86 version(MgmtStudio 32BIT\SQLManagementStudio_x86_ENU.exe) or x64 version(MgmtStudio 64BIT\SQLManagementStudio_x64_ENU.exe) including SQLCMD
+or 
+Only install SQLCMD cli-tool to execute batch file on this project.(You might need ODBC installation at the first of all)
+Execute batch file with below parameters in released directory.
 
 somebatchfile.bat SQLSERVER USERID PASSWORD DATABASE
 
 ###1) install-ping-test.bat
-Test connection with remote server.
+Test connection with remote SQL server.
 
 ```
 ping-test.bat SQLSERVER USERID PASSWORD DATABASE
