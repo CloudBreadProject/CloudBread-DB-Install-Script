@@ -11,30 +11,16 @@ somebatchfile.bat SQLSERVER USERID PASSWORD DATABASE
 Test connection with remote server.
 
 ```
-install-ping-test.bat SQLSERVER USERID PASSWORD DATABASE
+ping-test.bat SQLSERVER USERID PASSWORD DATABASE
 ```
 
-###2) install-CloudBreadDB-object-create.bat
-Install database objects includeing table, PK, constraint and etc.
+###2) install-with-sample.bat.bat
+Install all database objects , stored procedures and sample data.
 
 ```
 install-CloudBreadDB-object-create.bat SQLSERVER USERID PASSWORD DATABASE
 ```
 
-###3) install-CloudBreadDB-testdata-insert.bat and install-CloudBreadDB-statsdata-testdata-insert.bat
-Install sample data for developing and testing.
-
-```
-install-CloudBreadDB-testdata-insert.bat SQLSERVER USERID PASSWORD DATABASE
-install-CloudBreadDB-statsdata-testdata-insert.bat SQLSERVER USERID PASSWORD DATABASE
-```
-
-###4) subfolder/install-sp.bat
-Install stored proedures of CloudBread database.
-
-```
-install-sp.bat SQLSERVER USERID PASSWORD DATABASE
-```
 
 This project is designed for sql database developer to build CloudBread mobile game server engine backend. For more information about installation and deployment on database, visit CloudBread official project website.
 
