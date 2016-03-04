@@ -1,7 +1,7 @@
 --DROP PROC uspInsAnonymousRegMember
 CREATE PROC uspInsAnonymousRegMember
  @MembersMemberID nvarchar(MAX) = NULL
-,@MembersMemberPWD nvarchar(MAX) = NULL
+,@MembersMemberPWD nvarchar(MAX) = NULL		--deplicated in v2.0.0-beta
 ,@MembersEmailAddress nvarchar(MAX) = NULL
 ,@MembersEmailConfirmedYN nvarchar(MAX) = NULL
 ,@MembersPhoneNumber1 nvarchar(MAX) = NULL

@@ -6,7 +6,7 @@
 -- uspSelLoginInfo 프로시저 생성
 --DROP PROC uspUdtLoginInfo
 CREATE PROC uspUdtLoginInfo
-@MemberID nvarchar(MAX) = NULL
+@MemberID nvarchar(MAX) = NULL	-- server side sid
 ,@MemberPWD nvarchar(MAX) = NULL
 ,@EmailAddress nvarchar(MAX) = NULL
 ,@EmailConfirmedYN nvarchar(MAX) = NULL
@@ -49,8 +49,8 @@ AS
 set nocount on
 update Members
 set  
-MemberID = CASE WHEN @MemberID is not null THEN @MemberID ELSE  MemberID END
-, MemberPWD = CASE WHEN @MemberPWD is not null THEN @MemberPWD ELSE  MemberPWD END
+MemberID = CASE WHEN @MemberID is not null THEN @MemberID ELSE  MemberID END	
+, MemberPWD = CASE WHEN @MemberPWD is not null THEN @MemberPWD ELSE  MemberPWD END	-- do not v2.0.0
 , EmailAddress = CASE WHEN @EmailAddress is not null THEN @EmailAddress ELSE  EmailAddress END
 , EmailConfirmedYN = CASE WHEN @EmailConfirmedYN is not null THEN @EmailConfirmedYN ELSE  EmailConfirmedYN END
 , PhoneNumber1 = CASE WHEN @PhoneNumber1 is not null THEN @PhoneNumber1 ELSE  PhoneNumber1 END

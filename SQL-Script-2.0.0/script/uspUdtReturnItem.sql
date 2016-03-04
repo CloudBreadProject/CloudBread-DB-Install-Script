@@ -142,6 +142,7 @@ if upper(@DeleteORUpdate) = 'DELETE'
 				, sCol10 = CASE WHEN @sCol10_MemberItemPurchases is not null THEN @sCol10_MemberItemPurchases  ELSE sCol10   END
 				,UpdatedAt = sysutcdatetime()
 			where MemberItemPurchaseID like @MemberItemPurchaseID_MemberItemPurchases
+			and MemberID like @MemberID_MemberItemPurchases
 			set @rowcount = @rowcount + (select @@ROWCOUNT)
 
 			-- MemberGameInfoes 수정
@@ -196,6 +197,7 @@ if upper(@DeleteORUpdate) = 'UPDATE'
 				, sCol10 = CASE WHEN @sCol10_MemberItems is not null THEN @sCol10_MemberItems  ELSE  sCol10  END
 				,UpdatedAt = sysutcdatetime()
 			where MemberItemID like @MemberItemID_MemberItems
+			and MemberID like '@MemberID_MemberItems'
 			set @rowcount = @rowcount + (select @@ROWCOUNT)
 					
 			--MemberItemPurchases에 수정
@@ -232,6 +234,7 @@ if upper(@DeleteORUpdate) = 'UPDATE'
 				, sCol10 = CASE WHEN @sCol10_MemberItemPurchases is not null THEN @sCol10_MemberItemPurchases  ELSE  sCol10  END
 				, UpdatedAt = sysutcdatetime()
 			where MemberItemPurchaseID like @MemberItemPurchaseID_MemberItemPurchases
+			and MemberID like @MemberID_MemberItemPurchases
 			set @rowcount = @rowcount + (select @@ROWCOUNT)
 			
 			-- MemberGameInfoes 수정

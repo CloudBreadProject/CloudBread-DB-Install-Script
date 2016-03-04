@@ -66,7 +66,7 @@ MemberID = CASE WHEN @MemberID is not null THEN @MemberID ELSE  MemberID END
 , sCol9 = CASE WHEN @sCol9 is not null THEN @sCol9 ELSE  sCol9 END
 , sCol10 = CASE WHEN @sCol10 is not null THEN @sCol10 ELSE  sCol10 END
 ,UpdatedAt = sysutcdatetime()
-where MemberItemPurchaseID like @MemberItemPurchaseID
+where MemberItemPurchaseID like @MemberItemPurchaseID and MemberID like @MemberID
 select @@rowcount as Reslut
 
 GO
