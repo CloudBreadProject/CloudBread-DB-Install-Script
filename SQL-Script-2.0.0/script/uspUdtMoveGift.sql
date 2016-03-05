@@ -39,7 +39,8 @@ if upper(@InsertORUpdate) = 'INSERT'
 			set @rowcount = @rowcount + (select @@ROWCOUNT)
 			--삭제 플래그 루틴
 			--delete from GiftDepositories where GiftDepositoryID like @GiftDepositoryID
-			update GiftDepositories set SentMemberYN = 'Y', DeleteYN = 'Y', UpdatedAt = sysutcdatetime() where GiftDepositoryID like @GiftDepositoryID
+			update GiftDepositories set SentMemberYN = 'Y', DeleteYN = 'Y', UpdatedAt = sysutcdatetime() 
+			where GiftDepositoryID like @GiftDepositoryID and ToMemberID like @MemberID
 			set @rowcount = @rowcount + (select @@ROWCOUNT)
 		commit tran
 	end

@@ -82,7 +82,7 @@ begin
 					, sCol9 = CASE WHEN @sCol9_MemberItems is not null THEN @sCol9_MemberItems ELSE  sCol9 END
 					, sCol10 = CASE WHEN @sCol10_MemberItems is not null THEN @sCol10_MemberItems ELSE  sCol10 END
 					,UpdatedAt = sysutcdatetime()
-				where MemberItemID like @MemberItemID_MemberItems
+				where MemberItemID like @MemberItemID_MemberItems and MemberID like @MemberID_MemberItems
 				set @rowcount = @rowcount + (select @@ROWCOUNT)
 
 				--  GameEventMember에 추가	GameEventMemberID는 insert라 생성해 넣음

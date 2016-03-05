@@ -140,7 +140,7 @@ set @rowcount = 0
 						, sCol9 = CASE WHEN @sCol9_MemberGameInfoStages is not null THEN @sCol9_MemberGameInfoStages ELSE  sCol9 END
 						, sCol10 = CASE WHEN @sCol10_MemberGameInfoStages is not null THEN @sCol10_MemberGameInfoStages ELSE  sCol10 END
 						, UpdatedAt = SYSUTCDATETIME()
-					where MemberGameInfoStageID like @MemberGameInfoStageID_MemberGameInfoStages
+					where MemberGameInfoStageID like @MemberGameInfoStageID_MemberGameInfoStages and MemberID like @MemberID_MemberGameInfoStages
 					set @rowcount = @rowcount + (select @@ROWCOUNT)
 
 				-- MemberGameInfo¿¡ update ¼öÇà

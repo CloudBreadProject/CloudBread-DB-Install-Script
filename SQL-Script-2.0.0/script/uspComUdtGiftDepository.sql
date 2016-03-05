@@ -35,13 +35,14 @@ ItemListID = CASE WHEN @ItemListID is not null THEN @ItemListID ELSE  ItemListID
 , sCol9 = CASE WHEN @sCol9 is not null THEN @sCol9 ELSE  sCol9 END
 , sCol10 = CASE WHEN @sCol10 is not null THEN @sCol10 ELSE  sCol10 END
 ,UpdatedAt = sysutcdatetime()
-where GiftDepositoryID like @GiftDepositoryID
+where GiftDepositoryID like @GiftDepositoryID and ToMemberID like @ToMemberID
 select @@ROWCOUNT as Reslut
 
 GO
 /*
 -----------------------------------------------------------------------
-EXEC uspComUdtGiftDepository 'GiftID1', 'itemid3', '9', 'bbb', 'ccc', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
+EXEC uspComUdtGiftDepository 'GiftID1', 'itemid3', '9', 'ccc', 'aaa', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
+EXEC uspComUdtGiftDepository 'GiftID1', 'itemid3', '9', 'ccc', 'xxx', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
 EXEC uspComUdtGiftDepository 'CAB961F7-E05A-4034-9117-19BDB2D93010', null, '99', 'FromMemberID', 'ToMemberID', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10'
 select * from GiftDepositories
 select * from itemlists

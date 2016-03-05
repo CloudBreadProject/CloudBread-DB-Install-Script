@@ -51,7 +51,9 @@ if upper(@DeleteORUpdate) = 'DELETE'
 			--MemberItems에 삭제하고,  GiftDepositories에 insert 
 			--MemberItems에 삭제
 			--delete from MemberItems where MemberItemID like @MemberItemID_MemberItem
-			update MemberItems set DeleteYN = 'Y', UpdatedAt = SYSUTCDATETIME() where MemberItemID like @MemberItemID_MemberItem
+			update MemberItems set DeleteYN = 'Y', UpdatedAt = SYSUTCDATETIME() 
+			where MemberItemID like @MemberItemID_MemberItem
+			and MemberID like @MemberID_MemberItem
 			set @rowcount = @rowcount + (select @@ROWCOUNT)
 
 			-- GiftDepositories 를 insert
@@ -104,6 +106,7 @@ if upper(@DeleteORUpdate) = 'UPDATE'
 				, sCol10 = CASE WHEN @sCol10_MemberItem is not null THEN @sCol10_MemberItem  ELSE  sCol10  END
 				, UpdatedAt = SYSUTCDATETIME()
 			where MemberItemID like @MemberItemID_MemberItem
+			and MemberID like @MemberID_MemberItem
 			set @rowcount = @rowcount + (select @@ROWCOUNT)
 
 			-- GiftDepositories 를 insert
