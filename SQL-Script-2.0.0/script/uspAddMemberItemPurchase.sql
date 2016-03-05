@@ -161,7 +161,7 @@ if upper(@InsertORUpdate) = 'UPDATE'
 				, sCol9 = CASE WHEN @sCol9_MemberItems is not null THEN @sCol9_MemberItems  ELSE  sCol9  END
 				, sCol10 = CASE WHEN @sCol10_MemberItems is not null THEN @sCol10_MemberItems  ELSE  sCol10  END
 				, UpdatedAt = sysutcdatetime()
-			where MemberItemID like @MemberItemID_MemberItems and MemberID_MemberItems like @MemberID_MemberItems
+			where MemberItemID like @MemberItemID_MemberItems and MemberID like @MemberID_MemberItems
 			set @rowcount = @rowcount + (select @@ROWCOUNT)
 			--MemberItemPurchases insert
 			insert into MemberItemPurchases(MemberItemPurchaseID, MemberID, ItemListID, PurchaseQuantity, PurchasePrice, PGinfo1, PGinfo2, PGinfo3, PGinfo4, PGinfo5, PurchaseDeviceID, PurchaseDeviceIPAddress, PurchaseDeviceMACAddress, PurchaseDT, PurchaseCancelYN, PurchaseCancelDT, PurchaseCancelingStatus, PurchaseCancelReturnedAmount, PurchaseCancelDeviceID, PurchaseCancelDeviceIPAddress, PurchaseCancelDeviceMACAddress, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10)
