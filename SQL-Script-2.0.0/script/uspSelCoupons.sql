@@ -1,4 +1,9 @@
 /*
+***************************************************************************************************************
+This stored procedure is deplicated as business logic issue in CloudBread 2.0.1 release
+https://github.com/CloudBreadProject/CloudBread/issues/26
+***************************************************************************************************************
+
 SELECT * FROM GiftDepositories
 SELECT * FROM Members
 SELECT * FROM ItemLists
@@ -51,6 +56,7 @@ WHERE NOT EXISTS
 
 */
 
+/*
 -----------------------------------------------------------------------
 -- uspSelCoupons 프로시저 생성
 --DROP PROC uspSelCoupons
@@ -74,6 +80,7 @@ and Coupon.HideYN like 'N'
 and Coupon.DeleteYN like 'N'
 order by OrderNumber asc, CreatedAt desc		-- 정렬은 정렬 컬럼 숫자 asc, 이후 생성일 최신 순
 GO
+*/
 
 /*
 -----------------------------------------------------------------------

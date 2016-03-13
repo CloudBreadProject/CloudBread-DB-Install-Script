@@ -31,7 +31,7 @@ SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspInsAnonymousRegMember.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspInsRegMember.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspSelAdminLogin.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspSelAdminLogout.sql
-SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspSelCoupons.sql
+:: SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspSelCoupons.sql		:: uspSelCoupons is deplicated as business logic in CloudBread 2.0.1 release https://github.com/CloudBreadProject/CloudBread/issues/26
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspSelGameEvents.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspSelGiftItemToMe.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspSelItem1.sql
