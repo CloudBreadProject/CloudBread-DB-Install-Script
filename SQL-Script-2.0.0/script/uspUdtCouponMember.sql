@@ -129,7 +129,7 @@ begin
 				update MemberItems set
 					MemberID = CASE WHEN @MemberID_MemberItems is not null THEN @MemberID_MemberItems ELSE  MemberID END
 					, ItemListID = CASE WHEN @ItemListID_MemberItems is not null THEN @ItemListID_MemberItems ELSE  ItemListID END
-					, ItemCount = CASE WHEN @ItemCount_MemberItems is not null THEN @ItemCount_MemberItems ELSE  ItemCount END
+					, ItemCount = CASE WHEN @ItemCount_MemberItems is not null THEN convert(bigint, ItemCount) + convert(bigint, @ItemCount_MemberItems) ELSE  ItemCount END	-- add item count number here
 					, ItemStatus = CASE WHEN @ItemStatus_MemberItems is not null THEN @ItemStatus_MemberItems ELSE  ItemStatus END
 					, sCol1 = CASE WHEN @sCol1_MemberItems is not null THEN @sCol1_MemberItems ELSE  sCol1 END
 					, sCol2 = CASE WHEN @sCol2_MemberItems is not null THEN @sCol2_MemberItems ELSE  sCol2 END
@@ -171,6 +171,117 @@ begin
 				set @rowcount = @rowcount + (select @@ROWCOUNT)
 			commit tran
 		end
+	if upper(@InsertORUpdate) = 'GAMEINFO'
+		begin
+			begin tran
+				--GAMEINFO 일 경우 EventMember에 추가하고,  GameInfo에 Update
+				--CouponMember에 추가 수행해 이벤트 CouponMemberID는 GUID로 자동 삽입됨
+				insert into CouponMember(CouponMemberID, CouponID, MemberID, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10)
+				values(
+					newid(),		-- guid로 추가
+					@CouponID_CouponMember
+				,	@MemberID_CouponMember
+				,	@sCol1_CouponMember
+				,	@sCol2_CouponMember
+				,	@sCol3_CouponMember
+				,	@sCol4_CouponMember
+				,	@sCol5_CouponMember
+				,	@sCol6_CouponMember
+				,	@sCol7_CouponMember
+				,	@sCol8_CouponMember
+				,	@sCol9_CouponMember
+				,	@sCol10_CouponMember
+				)
+				set @rowcount = @rowcount + (select @@ROWCOUNT)
+
+				if upper(@ItemListID_MemberItems) = '_LEVEL_'
+					begin
+						update MemberGameInfoes set [Level] = convert(bigint, [Level]) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+						where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+				if upper(@ItemListID_MemberItems) = '_EXPS_'
+					begin
+						update MemberGameInfoes set Exps = convert(bigint, Exps) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+							where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+				if upper(@ItemListID_MemberItems) = '_POINTS_'
+					begin
+						update MemberGameInfoes set Points = convert(bigint, Points) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+							where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+				if upper(@ItemListID_MemberItems) = '_USERSTAT1_'
+					begin
+						update MemberGameInfoes set UserSTAT1 = convert(bigint, UserSTAT1) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+							where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+				if upper(@ItemListID_MemberItems) = '_USERSTAT2_'
+					begin
+						update MemberGameInfoes set UserSTAT2 = convert(bigint, UserSTAT2) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+							where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+				if upper(@ItemListID_MemberItems) = '_USERSTAT3_'
+					begin
+						update MemberGameInfoes set UserSTAT3 = convert(bigint, UserSTAT3) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+							where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+				if upper(@ItemListID_MemberItems) = '_USERSTAT4_'
+					begin
+						update MemberGameInfoes set UserSTAT4 = convert(bigint, UserSTAT4) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+							where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+				if upper(@ItemListID_MemberItems) = '_USERSTAT5_'
+					begin
+						update MemberGameInfoes set UserSTAT5 = convert(bigint, UserSTAT5) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+							where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+				if upper(@ItemListID_MemberItems) = '_USERSTAT6_'
+					begin
+						update MemberGameInfoes set UserSTAT6 = convert(bigint, UserSTAT6) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+							where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+				if upper(@ItemListID_MemberItems) = '_USERSTAT7_'
+					begin
+						update MemberGameInfoes set UserSTAT7 = convert(bigint, UserSTAT7) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+							where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+				if upper(@ItemListID_MemberItems) = '_USERSTAT8_'
+					begin
+						update MemberGameInfoes set UserSTAT8 = convert(bigint, UserSTAT8) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+							where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+				if upper(@ItemListID_MemberItems) = '_USERSTAT9_'
+					begin
+						update MemberGameInfoes set UserSTAT9 = convert(bigint, UserSTAT9) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+							where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+				if upper(@ItemListID_MemberItems) = '_USERSTAT10_'
+					begin
+						update MemberGameInfoes set UserSTAT10 = convert(bigint, UserSTAT10) + convert(bigint, @ItemCount_MemberItems), UpdatedAt = sysutcdatetime()
+							where MemberID like @MemberID_MemberItems
+						set @rowcount = @rowcount + (select @@ROWCOUNT)
+					end
+
+				-- 쿠폰 삭제 처리
+				if upper(@DupeYN_Coupon) = 'N'		-- 중복 사용 가능 쿠폰(Y)이면 아무것도 안함. N 일 경우에는 쿠폰 테이블 업데이트해서 쿠폰 삭제
+					begin
+						update Coupon set DeleteYN = 'Y', UpdatedAt=SYSUTCDATETIME() WHERE CouponID like @CouponID_Coupon
+					end
+				set @rowcount = @rowcount + (select @@ROWCOUNT)
+
+			commit tran
+		end
 	select @rowcount as Result
 end
 else
@@ -179,13 +290,45 @@ GO
 
 /*
 -----------------------------------------------------------------------
---@InsertORUpdate,@DupeYN_Coupon,@CouponID_Coupon,@MemberItemID_MemberItems,@MemberID_MemberItem,@ItemListID_MemberItem,@ItemCount_MemberItem,@ItemStatus_MemberItem,@HideYN_MemberItem,@DeleteYN_MemberItem,@sCol1_MemberItem,@sCol2_MemberItem,@sCol3_MemberItem,@sCol4_MemberItem,@sCol5_MemberItem,@sCol6_MemberItem,@sCol7_MemberItem,@sCol8_MemberItem,@sCol9_MemberItem,@sCol10_MemberItem,@CouponID_CouponMember,@MemberID_CouponMember,@HideYN_CouponMember,@DeleteYN_CouponMember,@sCol1_CouponMember,@sCol2_CouponMember,@sCol3_CouponMember,@sCol4_CouponMember,@sCol5_CouponMember,@sCol6_CouponMember,@sCol7_CouponMember,@sCol8_CouponMember,@sCol9_CouponMember,@sCol10_CouponMember
+--@InsertORUpdate,@CouponID_Coupon,@MemberItemID_MemberItems,@MemberID_MemberItem,@ItemListID_MemberItem,@ItemCount_MemberItem,@ItemStatus_MemberItem,@HideYN_MemberItem,@DeleteYN_MemberItem,@sCol1_MemberItem,@sCol2_MemberItem,@sCol3_MemberItem,@sCol4_MemberItem,@sCol5_MemberItem,@sCol6_MemberItem,@sCol7_MemberItem,@sCol8_MemberItem,@sCol9_MemberItem,@sCol10_MemberItem,@CouponID_CouponMember,@MemberID_CouponMember,@HideYN_CouponMember,@DeleteYN_CouponMember,@sCol1_CouponMember,@sCol2_CouponMember,@sCol3_CouponMember,@sCol4_CouponMember,@sCol5_CouponMember,@sCol6_CouponMember,@sCol7_CouponMember,@sCol8_CouponMember,@sCol9_CouponMember,@sCol10_CouponMember
 --현재 MemberID가 참여하지 않은 이벤트 리스트
-EXEC uspUdtCouponMember 'INSERT','ABC00D7A-4047-4A87-A61A-C4E96F62F8E9','540B7F7A-472C-461E-BE5C-9FBEE82393F0','aaa','ItemListID_MemberItems','ItemCount_MemberItems','ItemStatus_MemberItems','sCol1_MemberItems','sCol2_MemberItems','sCol3_MemberItems','sCol4_MemberItems','sCol5_MemberItems','sCol6_MemberItems','sCol7_MemberItems','sCol8_MemberItems','sCol9_MemberItems','sCol10_MemberItems','ABC00D7A-4047-4A87-A61A-C4E96F62F8E9','aaa','sCol1_CouponMember','sCol2_CouponMember','sCol3_CouponMember','sCol4_CouponMember','sCol5_CouponMember','sCol6_CouponMember','sCol7_CouponMember','sCol8_CouponMember','sCol9_CouponMember','sCol10_CouponMember'
+EXEC uspUdtCouponMember 'INSERT','EC06BBCF-7AC3-430F-9583-E848638D01C2','MemberItemsID45','aaa','itemid45','45','ItemStatus_MemberItems','sCol1_MemberItems','sCol2_MemberItems','sCol3_MemberItems','sCol4_MemberItems','sCol5_MemberItems','sCol6_MemberItems','sCol7_MemberItems','sCol8_MemberItems','sCol9_MemberItems','sCol10_MemberItems'
+	,'EC06BBCF-7AC3-430F-9583-E848638D01C2','aaa','sCol1_CouponMember','sCol2_CouponMember','sCol3_CouponMember','sCol4_CouponMember','sCol5_CouponMember','sCol6_CouponMember','sCol7_CouponMember','sCol8_CouponMember','sCol9_CouponMember','sCol10_CouponMember'
+
+EXEC uspUdtCouponMember 'UPDATE','9895F6CB-A1BF-4508-96E7-1F98F5102A8B','MemberItemsID45','aaa','itemid45','55','ItemStatus_MemberItems','sCol1_MemberItems','sCol2_MemberItems','sCol3_MemberItems','sCol4_MemberItems','sCol5_MemberItems','sCol6_MemberItems','sCol7_MemberItems','sCol8_MemberItems','sCol9_MemberItems','sCol10_MemberItems'
+	,'9895F6CB-A1BF-4508-96E7-1F98F5102A8B','aaa','sCol1_CouponMember','sCol2_CouponMember','sCol3_CouponMember','sCol4_CouponMember','sCol5_CouponMember','sCol6_CouponMember','sCol7_CouponMember','sCol8_CouponMember','sCol9_CouponMember','sCol10_CouponMember'
+
+EXEC uspUdtCouponMember 'GAMEINFO','548A8FBA-CA83-4759-8BBF-30BCAEBEC827','N/A','aaa','_POINTS_','4500','ItemStatus_MemberItems','sCol1_MemberItems','sCol2_MemberItems','sCol3_MemberItems','sCol4_MemberItems','sCol5_MemberItems','sCol6_MemberItems','sCol7_MemberItems','sCol8_MemberItems','sCol9_MemberItems','sCol10_MemberItems'
+	,'548A8FBA-CA83-4759-8BBF-30BCAEBEC827','aaa','sCol1_CouponMember','sCol2_CouponMember','sCol3_CouponMember','sCol4_CouponMember','sCol5_CouponMember','sCol6_CouponMember','sCol7_CouponMember','sCol8_CouponMember','sCol9_CouponMember','sCol10_CouponMember'
+
+EXEC uspUdtCouponMember 'GAMEINFO', '377AE94F-0311-4E54-BC6A-7AC07BC46348','N/A','aaa','_EXPS_','5000','ItemStatus_MemberItems','sCol1_MemberItems','sCol2_MemberItems','sCol3_MemberItems','sCol4_MemberItems','sCol5_MemberItems','sCol6_MemberItems','sCol7_MemberItems','sCol8_MemberItems','sCol9_MemberItems','sCol10_MemberItems'
+	,'377AE94F-0311-4E54-BC6A-7AC07BC46348','aaa','sCol1_CouponMember','sCol2_CouponMember','sCol3_CouponMember','sCol4_CouponMember','sCol5_CouponMember','sCol6_CouponMember','sCol7_CouponMember','sCol8_CouponMember','sCol9_CouponMember','sCol10_CouponMember'
+
+EXEC uspUdtCouponMember 'GAMEINFO', 'B11CA2E2-68FC-437D-8813-C1F08E6DE31B','N/A','aaa','_LEVEL_','100','ItemStatus_MemberItems','sCol1_MemberItems','sCol2_MemberItems','sCol3_MemberItems','sCol4_MemberItems','sCol5_MemberItems','sCol6_MemberItems','sCol7_MemberItems','sCol8_MemberItems','sCol9_MemberItems','sCol10_MemberItems'
+	,'B11CA2E2-68FC-437D-8813-C1F08E6DE31B','aaa','sCol1_CouponMember','sCol2_CouponMember','sCol3_CouponMember','sCol4_CouponMember','sCol5_CouponMember','sCol6_CouponMember','sCol7_CouponMember','sCol8_CouponMember','sCol9_CouponMember','sCol10_CouponMember'
+
 -----------------------------------------------------------------------
+
+--45번을 테스트 목적으로 INSERT 루틴을 위해 추가
+INSERT INTO ItemLists (ItemListID, ItemName, ItemDescription, ItemPrice, ItemSellPrice, ItemCategory1, ItemCategory2, ItemCategory3, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10)
+VALUES('itemid45', 'ItemName45', 'ItemDescription', '45', '45', 'ItemCategory1', 'ItemCategory2', 'ItemCategory3', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10')
 
 SELECT * FROM ItemLists
 SELECT * FROM Coupon
 SELECT * FROM CouponMember
+SELECT * FROM MemberGameInfoes
 SELECT * FROM MemberItems
+--delete from MemberItems where memberitemid like 'MemberItemsID45'
+
+--MemberGameInfoes 의 "사용자 정의 돈"이나 "point등을" 수정하기 위한 샘플 데이터
+insert into Coupon(CouponID, CouponCategory1, CouponCategory2, CouponCategory3, ItemListID, ItemCount, ItemStatus, TargetGroup, TargetOS, TargetDevice, Title, Content, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10, DupeYN, OrderNumber, CouponDurationFrom, CouponDurationTo, CreateAdminID)
+        values(newid(), 'update Exps data of MemberGameInfoes table', 'CouponCategory2', 'CouponCategory3', 
+        '_EXPS_', '5000', 'ItemStatus', 'TargetGroup', 'TargetOS', 'TargetDevice', 'Title1', 'Content', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', '0', '2015-03-01', '2025-04-01', 'admin1')
+
+insert into Coupon(CouponID, CouponCategory1, CouponCategory2, CouponCategory3, ItemListID, ItemCount, ItemStatus, TargetGroup, TargetOS, TargetDevice, Title, Content, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10, DupeYN, OrderNumber, CouponDurationFrom, CouponDurationTo, CreateAdminID)
+        values(newid(), 'update Level data of MemberGameInfoes table', 'CouponCategory2', 'CouponCategory3', 
+        '_LEVEL_', '100', 'ItemStatus', 'TargetGroup', 'TargetOS', 'TargetDevice', 'Title1', 'Content', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', '0', '2015-03-01', '2025-04-01', 'admin1')
+
+
+
 */
