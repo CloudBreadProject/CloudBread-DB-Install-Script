@@ -307,6 +307,9 @@ EXEC uspUdtCouponMember 'GAMEINFO', '377AE94F-0311-4E54-BC6A-7AC07BC46348','N/A'
 EXEC uspUdtCouponMember 'GAMEINFO', 'B11CA2E2-68FC-437D-8813-C1F08E6DE31B','N/A','aaa','_LEVEL_','100','ItemStatus_MemberItems','sCol1_MemberItems','sCol2_MemberItems','sCol3_MemberItems','sCol4_MemberItems','sCol5_MemberItems','sCol6_MemberItems','sCol7_MemberItems','sCol8_MemberItems','sCol9_MemberItems','sCol10_MemberItems'
 	,'B11CA2E2-68FC-437D-8813-C1F08E6DE31B','aaa','sCol1_CouponMember','sCol2_CouponMember','sCol3_CouponMember','sCol4_CouponMember','sCol5_CouponMember','sCol6_CouponMember','sCol7_CouponMember','sCol8_CouponMember','sCol9_CouponMember','sCol10_CouponMember'
 
+EXEC uspUdtCouponMember 'GAMEINFO', 'DF8CA626-7BCF-489C-9C6D-85B58B2D6D5D','N/A','aaa','_POINTS_','340000','ItemStatus_MemberItems','sCol1_MemberItems','sCol2_MemberItems','sCol3_MemberItems','sCol4_MemberItems','sCol5_MemberItems','sCol6_MemberItems','sCol7_MemberItems','sCol8_MemberItems','sCol9_MemberItems','sCol10_MemberItems'
+	,'DF8CA626-7BCF-489C-9C6D-85B58B2D6D5D','aaa','sCol1_CouponMember','sCol2_CouponMember','sCol3_CouponMember','sCol4_CouponMember','sCol5_CouponMember','sCol6_CouponMember','sCol7_CouponMember','sCol8_CouponMember','sCol9_CouponMember','sCol10_CouponMember'
+
 -----------------------------------------------------------------------
 
 --45번을 테스트 목적으로 INSERT 루틴을 위해 추가
@@ -329,6 +332,9 @@ insert into Coupon(CouponID, CouponCategory1, CouponCategory2, CouponCategory3, 
         values(newid(), 'update Level data of MemberGameInfoes table', 'CouponCategory2', 'CouponCategory3', 
         '_LEVEL_', '100', 'ItemStatus', 'TargetGroup', 'TargetOS', 'TargetDevice', 'Title1', 'Content', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', '0', '2015-03-01', '2025-04-01', 'admin1')
 
+insert into Coupon(CouponID, CouponCategory1, CouponCategory2, CouponCategory3, ItemListID, ItemCount, ItemStatus, TargetGroup, TargetOS, TargetDevice, Title, Content, sCol1, sCol2, sCol3, sCol4, sCol5, sCol6, sCol7, sCol8, sCol9, sCol10, DupeYN, OrderNumber, CouponDurationFrom, CouponDurationTo, CreateAdminID)
+        values(newid(), 'update Points data of MemberGameInfoes table', 'CouponCategory2', 'CouponCategory3', 
+        '_POINTS_', '340000', 'ItemStatus', 'TargetGroup', 'TargetOS', 'TargetDevice', 'Title1', 'Content', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'N', '0', '2015-03-01', '2025-04-01', 'admin1')
 
 
 */
