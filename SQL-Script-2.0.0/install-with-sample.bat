@@ -51,3 +51,5 @@ SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspUdtMoveGift.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspUdtReturnItem.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspUdtSellItem.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspUdtSendGift.sql
+SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspComInsMemberItem.sql
+SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspComInsMemberGameInfoStages.sql
