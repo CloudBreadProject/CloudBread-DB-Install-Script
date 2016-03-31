@@ -81,15 +81,17 @@ set
 , sCol10 = CASE WHEN @sCol10 is not null THEN @sCol10 ELSE  sCol10 END
 , TimeZoneID = CASE WHEN @TimeZoneID is not null THEN @TimeZoneID ELSE  TimeZoneID END
 , UpdatedAt = sysutcdatetime()
-where MemberID like @MemberID and MemberPWD like @MemberPWD and HideYN like 'N' and DeleteYN like 'N'
+where MemberID like @MemberID 
+--and MemberPWD like @MemberPWD			-- fixed for CloudBread-DB-Install-Script v 2.1.0
+and HideYN like 'N' and DeleteYN like 'N'
 select @@ROWCOUNT as Reslut
 
 GO
 
 /*
 -----------------------------------------------------------------------
-EXEC uspComUdtMember 'ddd', 'MemberPWD', 'UpdateAllData@ddd.com', 'Y', 'PhoneNumber1', 'PhoneNumber2', 'PINumber', 'Name1', 'Name2', 'Name3', '19900101', 'RecommenderID', 'MemberGroup', 'LastDeviceID', 'LastIPaddress', '2016-01-01 00:00:00.0000000 +00:00', '2016-01-01 00:00:00.0000000 +00:00', 'LastMACAddress', 'N', '1900-01-01', 'N', '3rdAuthProvider', '3rdAuthIDaaa', '3rdAuthParam', 'PushNotificationID', 'PushNotificationProvider', 'PushNotificationGroup', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'Korea Standard Time'
-EXEC uspComUdtMember 'eee', 'MemberPWD', 'UpdateOnlyEmail@abc.com', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+EXEC uspComUdtMember 'ddd', 'not used in CB v2', 'UpdateAllData@ddd.com', 'Y', 'PhoneNumber1', 'PhoneNumber2', 'PINumber', 'Name1', 'Name2', 'Name3', '19900101', 'RecommenderID', 'MemberGroup', 'LastDeviceID', 'LastIPaddress', '2016-01-01 00:00:00.0000000 +00:00', '2016-01-01 00:00:00.0000000 +00:00', 'LastMACAddress', 'N', '1900-01-01', 'N', '3rdAuthProvider', '3rdAuthIDaaa', '3rdAuthParam', 'PushNotificationID', 'PushNotificationProvider', 'PushNotificationGroup', 'sCol1', 'sCol2', 'sCol3', 'sCol4', 'sCol5', 'sCol6', 'sCol7', 'sCol8', 'sCol9', 'sCol10', 'Korea Standard Time'
+EXEC uspComUdtMember 'eee', 'not used in CB v2', 'UpdateOnlyEmail@abc.com', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
 -----------------------------------------------------------------------
 select * from Members
 select * from Members where MemberID like 'aaa'
