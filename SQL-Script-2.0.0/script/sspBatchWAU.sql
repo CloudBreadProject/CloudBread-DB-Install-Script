@@ -40,4 +40,20 @@ declare @nowdt datetime
 set @nowdt = (select getutcdate())
 SELECT DATEPART(year, @nowdt) + '-' + DATEPART(month,@nowdt) + '-' +  DATEPART(day, @nowdt);
 SELECT convert(datetime, getutcdate(), 121) -- yyyy-mm-dd hh:mm:ss.mmm 
+
+--test week
+declare @nowdt datetime
+declare @CurrentDT datetimeoffset(7)
+declare @testdt datetimeoffset(7)
+declare @testdt2 datetimeoffset(7)
+
+set @nowdt = (select getutcdate())
+set @CurrentDT = ((SELECT DATETIMEFROMPARTS (DATEPART(year, @nowdt), DATEPART(month,@nowdt), DATEPART(day, @nowdt), DATEPART(hour, @nowdt), 0, 0,0 )))
+set @testdt = (dateadd(day, -6, @CurrentDT))
+set @testdt2 = (dateadd(day, -8, @CurrentDT))
+
+update Members set LastLoginDT = @testdt where memberid like 'aaa3'
+update Members set LastLoginDT = @testdt2 where memberid like 'aaa4'
+exec sspBatchWAU
+select * from StatsData where CategoryName like 'WAU' order by createdat desc
 */
