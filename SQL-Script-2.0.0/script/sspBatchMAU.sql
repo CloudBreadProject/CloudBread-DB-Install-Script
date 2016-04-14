@@ -17,3 +17,29 @@ set @MAU = (select count(*) from members where LastLoginDT between @LastRunDT an
 insert into StatsData(CategoryName, CountNum, Fields, Groups) values('MAU', @MAU, CONVERT(nvarchar(8), GETUTCDATE(), 112), '') 
 select @@rowcount 
 GO
+
+------------------------------------------------------------------
+-- run test
+--exec sspBatchMAU
+------------------------------------------------------------------
+
+
+/*
+select * from StatsData order by createdat desc
+select * from Members
+select count(*) from members where LastLoginDT between '2016-05-09 15:00:03.1749825 +00:00' and sysutcdatetime()
+
+-- test data value
+update Members set LastLoginDT = sysutcdatetime() where memberid like 'bbb'
+update Members set LastLoginDT = sysutcdatetime() where memberid like 'ccc'
+update Members set LastLoginDT = sysutcdatetime() where memberid like 'ddd'
+
+select sysutcdatetime()
+select dateadd(day, -30, sysutcdatetime()) 
+select CONVERT(nvarchar(20), getutcdate(), 112)
+
+declare @nowdt datetime
+set @nowdt = (select getutcdate())
+SELECT DATEPART(year, @nowdt) + '-' + DATEPART(month,@nowdt) + '-' +  DATEPART(day, @nowdt);
+SELECT convert(datetime, getutcdate(), 121) -- yyyy-mm-dd hh:mm:ss.mmm 
+*/
