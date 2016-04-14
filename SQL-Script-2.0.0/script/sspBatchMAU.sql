@@ -8,7 +8,7 @@ declare @nowdt datetime
 declare @MAU bigint
 set @nowdt = (select getutcdate())
 --select @nowdt as nowdt
-set @CurrentDT = ((SELECT DATETIMEFROMPARTS (DATEPART(year, @nowdt), DATEPART(month,@nowdt), DATEPART(day, @nowdt), DATEPART(hour, @nowdt), 0, 0,0 )))
+set @CurrentDT = ((SELECT DATETIMEFROMPARTS (DATEPART(year, @nowdt), DATEPART(month,@nowdt), DATEPART(day, @nowdt), 0, 0, 0, 0)))
 --select @CurrentDT as CurrentDT
 set @LastRunDT = (dateadd(day, -30, @CurrentDT))
 --select @LastRunDT as LastRunDT
