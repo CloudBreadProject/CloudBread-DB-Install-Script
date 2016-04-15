@@ -18,7 +18,7 @@ set @day15DT = (dateadd(day, -15, @CurrentDT))
 set @day30DT = (dateadd(day, -30, @CurrentDT))
 
 set @Dormant30DT = (select count(*) from members where LastLogoutDT < @day30DT)
-set @Dormant15DT = (select count(*) from members where LastLogoutDT < @day15DT)
+set @Dormant15DT = (select count(*) from members where LastLogoutDT < @day15DT) - @Dormant30DT
 
 insert into StatsData(CategoryName, CountNum, Fields, Groups) values('Dormant15', @Dormant15DT, CONVERT(nvarchar(8), GETUTCDATE(), 112), '')
 insert into StatsData(CategoryName, CountNum, Fields, Groups) values('Dormant30', @Dormant30DT, CONVERT(nvarchar(8), GETUTCDATE(), 112), '')
