@@ -47,4 +47,17 @@ declare @nowdt datetime
 set @nowdt = (select getutcdate())
 SELECT DATEPART(year, @nowdt) + '-' + DATEPART(month,@nowdt) + '-' +  DATEPART(day, @nowdt);
 SELECT convert(datetime, getutcdate(), 121) -- yyyy-mm-dd hh:mm:ss.mmm
+
+-- test Dormant15 date
+declare @nowdt datetime
+declare @CurrentDT datetimeoffset(7)
+declare @testdt datetimeoffset(7)
+
+set @nowdt = (select getutcdate())
+set @CurrentDT = ((SELECT DATETIMEFROMPARTS (DATEPART(year, @nowdt), DATEPART(month,@nowdt), DATEPART(day, @nowdt), DATEPART(hour, @nowdt), 0, 0,0 )))
+set @testdt = (dateadd(day, -16, @CurrentDT))
+
+update Members set LastLogoutDT = @testdt where memberid like 'aaa3'
+exec sspBatchDormant
+select * from StatsData where CategoryName like 'Dormant15' order by createdat desc
 */
