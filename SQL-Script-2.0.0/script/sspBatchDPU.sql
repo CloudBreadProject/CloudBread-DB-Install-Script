@@ -39,4 +39,18 @@ declare @nowdt datetime
 set @nowdt = (select getutcdate())
 SELECT DATEPART(year, @nowdt) + '-' + DATEPART(month,@nowdt) + '-' +  DATEPART(day, @nowdt);
 SELECT convert(datetime, getutcdate(), 121) -- yyyy-mm-dd hh:mm:ss.mmm 
+
+--test payNumber
+declare @nowdt datetime
+declare @CurrentDT datetimeoffset(7)
+declare @testdt datetimeoffset(7)
+
+set @nowdt = (select getutcdate())
+set @CurrentDT = ((SELECT DATETIMEFROMPARTS (DATEPART(year, @nowdt), DATEPART(month,@nowdt), DATEPART(day, @nowdt), DATEPART(hour, @nowdt), 0, 0,0 )))
+set @testdt = (dateadd(hour, -14, @CurrentDT))
+
+update MemberItemPurchases set PurchaseDT = @testdt where memberid like 'ccc'
+exec sspBatchDPU
+select * from StatsData where CategoryName like 'DPU' order by createdat desc
+select * from MemberItemPurchases
 */
