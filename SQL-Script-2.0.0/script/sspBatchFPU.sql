@@ -40,4 +40,24 @@ declare @nowdt datetime
 set @nowdt = (select getutcdate())
 SELECT DATEPART(year, @nowdt) + '-' + DATEPART(month,@nowdt) + '-' +  DATEPART(day, @nowdt);
 SELECT convert(datetime, getutcdate(), 121) -- yyyy-mm-dd hh:mm:ss.mmm 
+
+--test FPU
+declare @LastRunDT datetimeoffset(7)
+declare @CurrentDT datetimeoffset(7)
+
+declare @nowdt datetime
+declare @testDT datetime
+
+declare @PayNumber bigint
+declare @MemberCount bigint
+
+set @nowdt = (select getutcdate())
+set @CurrentDT = ((SELECT DATETIMEFROMPARTS (DATEPART(year, @nowdt), DATEPART(month,@nowdt), DATEPART(day, @nowdt), DATEPART(hour, @nowdt), 0, 0, 0 )))
+set @LastRunDT = (dateadd(day, -1, @CurrentDT))
+set @testDT = (dateadd(hour, -14, @CurrentDT))
+update MemberItemPurchases set PurchaseDT = @testDT where MemberID like 'ccc'
+
+select count(*) from MemberItemPurchases where MemberID in (select MemberID from MemberItemPurchases where PurchaseDT between @LastRunDT and @CurrentDT group by MemberID having count(*) = 1)
+
+select * from MemberItemPurchases
 */
