@@ -41,7 +41,8 @@ set @CurrentDT = ((SELECT DATETIMEFROMPARTS (DATEPART(year, @nowdt), DATEPART(mo
 set @LastRunDT = (dateadd(day, -1, @CurrentDT))
 set @testDT = (dateadd(hour, -14, @CurrentDT))
 update MemberItemPurchases set PurchasePrice = '100', PurchaseDT = @testDT where MemberID like 'ccc'
-
+update MemberItemPurchases set PurchasePrice = '300' where MemberID like 'aaa'
+update MemberItemPurchases set PurchaseDT = @testDT where ItemListID like 'itemid3'
 
 select sum(CONVERT(bigint, PurchasePrice)) from MemberItemPurchases where PurchaseDT between @LastRunDT and @CurrentDT AND PurchaseCancelYN like 'N'
 
