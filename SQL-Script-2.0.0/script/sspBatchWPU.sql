@@ -80,5 +80,3 @@ exec sspBatchWPU
 select * from StatsData where CategoryName like 'WPU' order by createdat desc
 select * from MemberItemPurchases
 */
-
-*/
