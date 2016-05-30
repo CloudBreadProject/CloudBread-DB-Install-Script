@@ -2,6 +2,7 @@ echo on
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i install-with-sample.sql
 
 echo off
+SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBatchBPI.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBatchDARPU.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBatchDAU.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBatchDormant.sql
