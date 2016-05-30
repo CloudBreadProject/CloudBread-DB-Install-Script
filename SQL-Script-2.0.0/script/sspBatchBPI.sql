@@ -33,3 +33,28 @@ if @BPI3 is not null
 		insert into StatsData(CategoryName, CountNum, Fields, Groups) values('BPItem3', 0, CONVERT(nvarchar(8), GETUTCDATE(), 112), @BPI3)
 	end
 GO
+
+------------------------------------------------------------------
+-- run test
+--exec sspBatchBPI
+------------------------------------------------------------------
+
+/*
+select * from StatsData order by createdat desc
+select * from Members
+select * from MemberItemPurchases
+
+-- test data value
+update MemberItemPurchases set PurchaseDT = sysutcdatetime() where memberid like 'aaa'
+update MemberItemPurchases set PurchaseDT = sysutcdatetime() where memberid like 'ccc'
+
+select sysutcdatetime()
+select dateadd(day, -1, sysutcdatetime()) 
+select CONVERT(nvarchar(20), getutcdate(), 112)
+
+declare @nowdt datetime
+set @nowdt = (select getutcdate())
+SELECT DATEPART(year, @nowdt) + '-' + DATEPART(month,@nowdt) + '-' +  DATEPART(day, @nowdt);
+SELECT convert(datetime, getutcdate(), 121) -- yyyy-mm-dd hh:mm:ss.mmm 
+
+*/
