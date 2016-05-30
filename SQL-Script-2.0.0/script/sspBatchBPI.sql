@@ -57,4 +57,31 @@ set @nowdt = (select getutcdate())
 SELECT DATEPART(year, @nowdt) + '-' + DATEPART(month,@nowdt) + '-' +  DATEPART(day, @nowdt);
 SELECT convert(datetime, getutcdate(), 121) -- yyyy-mm-dd hh:mm:ss.mmm 
 
+--test BPI1,2,3
+declare @LastRunDT datetimeoffset(7)
+declare @CurrentDT datetimeoffset(7)
+
+declare @nowdt datetime
+declare @testDT datetimeoffset(7)
+
+set @nowdt = (select getutcdate())
+set @CurrentDT = ((SELECT DATETIMEFROMPARTS (DATEPART(year, @nowdt), DATEPART(month,@nowdt), DATEPART(day, @nowdt), DATEPART(hour, @nowdt), 0, 0, 0 )))
+set @LastRunDT = (dateadd(day, -1, @CurrentDT))
+set @testDT = (dateadd(hour, -14, @CurrentDT))
+update MemberItemPurchases set PurchaseDT = @testDT where MemberID like 'ccc'
+update MemberItemPurchases set PurchaseDT = @testDT where ItemListID like 'itemid2'
+
+--대안1
+select ItemListID from (select ItemListID, row_number() over(order by t1.TotalCount desc) as rownum from (select TOP 3 ItemListID, count(*) AS TotalCount from MemberItemPurchases where PurchaseDT between @LastRunDT and @CurrentDT group by ItemListID order by TotalCount desc) t1) t1 where t1.rownum like '1'
+select ItemListID from (select ItemListID, row_number() over(order by t1.TotalCount desc) as rownum from (select TOP 3 ItemListID, count(*) AS TotalCount from MemberItemPurchases where PurchaseDT between @LastRunDT and @CurrentDT group by ItemListID order by TotalCount desc) t1) t1 where t1.rownum like '2'
+select ItemListID from (select ItemListID, row_number() over(order by t1.TotalCount desc) as rownum from (select TOP 3 ItemListID, count(*) AS TotalCount from MemberItemPurchases where PurchaseDT between @LastRunDT and @CurrentDT group by ItemListID order by TotalCount desc) t1) t1 where t1.rownum like '3'
+
+--대안2
+select top 1 ItemListID from (select ItemListID, count(*) AS TotalCount from MemberItemPurchases group by ItemListID) t1 where ItemListID not in (select top 1 ItemListID from (select ItemListID, count(*) AS TotalCount from MemberItemPurchases group by ItemListID) t2)
+
+--1등
+select TOP 1 ItemListID, count(*) AS TotalCount from MemberItemPurchases group by ItemListID order by TotalCount desc
+
+select MemberID, ItemListID, PurchaseDT from MemberItemPurchases
+
 */
