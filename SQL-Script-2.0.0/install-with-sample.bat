@@ -11,10 +11,10 @@ SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBatchDPU.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBatchFPC.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBatchFPU.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBatchHAU.sql
-SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBarchMAU.sql
-SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBarchMPU.sql
-SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBarchWAU.sql
-SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBarchWPU.sql
+SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBatchMAU.sql
+SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBatchMPU.sql
+SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBatchWAU.sql
+SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/sspBatchWPU.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspAddMemberItemPurchase.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspAddUseMemberItem.sql
 SQLCMD -S %1 -U %2 -P %3 -d %4 -i ./script/uspComInsMemberItemPurchase.sql
